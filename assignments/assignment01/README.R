@@ -14,10 +14,21 @@
 
 #' Complete to the following tasks and push the responses to your GitHub:
 #' Create a character vector `family` with your family members' names
+family<-c('Rusland', 'Majlinda', 'Najada', 'Daniela', 'Enxhi')
 #' Create a vector `birth` with their birth years
+ birth <- c(1956, 1963, 1983, 1985, 1995)
 #' Create another vector `age` with your family members' ages (calculated using `birth`)
+ age <- 2019 - birth
+age
 #' Use `typeof()` to make sure that `family`, `birth`, and `age` are the appropriate type (character, integer/double, integer/double)
+typeof(family)
+typeof(birth)
+typeof(age)
+?names()
 #' Use `names()` to name the elements of `age` with the family members' names from `family`
+names(age) <- c(family)
+names(age)
+age
 #' Use inline code `r ##` to print your name and age (using indexing)
 
 
@@ -32,8 +43,9 @@
 
 #' Carefully read the documentation for `is.vector()`. If `is.vector(x)` retrieves `TRUE`, does it mean that `x` is an atomic vector?
   
-  
-  
+?is.vector
+?atomic
+
   
   
   

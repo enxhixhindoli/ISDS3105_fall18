@@ -29,7 +29,7 @@ Cont'd
 
 ```r
 mean()
-Error in mean.default(): argument "x" is missing, with no default
+Error in mean.default(): l'argomento "x"  non è specificato e non ha un valore predefinito
 ```
 
  - Some functions require to pass specific object of a specific type (e.g., `sum()` expects a vector)

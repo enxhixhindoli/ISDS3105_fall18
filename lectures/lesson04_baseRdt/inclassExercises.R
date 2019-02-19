@@ -15,13 +15,18 @@ iphoneSales <- data.frame(
   iPhoneX = c(NA, NA, NA, NA, NA, 20.1, 17))
 
 #' extract the first two elements of column "IPhone6s"
+iphoneSales$iPhone6S[1:2]
 
 #' subset iphoneSales to a dataframe with only time, iPhone5C, IPhoneX
+iphoneSales[,c('time','iPhone5C','iPhoneX')]
 
 #' keep only the rows where the sales for iPhoneSE are higher than 7 AND are not NA (AND = &, OR = |, NOT = !)
+
+my.data.frame <- iphoneSales[(iphoneSales$iPhoneSE > 7 & !is.NA), ]
 
 #' Use %in% to keep only the rows for c("Sep 2014", "Sep 2015", "Sep 2018")
 
 #' calculate the mean() of the IPhone7 sold 
 
 #' use inline code to print the mean of the iphone sold in Jun 2018
+
