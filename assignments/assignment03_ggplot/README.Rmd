@@ -61,11 +61,16 @@ bdLouisiana
 ```
 
 7. Report in a tabular format the 5 states with the highest premiums (include only state and insurance_premiums)
+```{r}
+tabular_final <- bad_drivers[order(-bad_drivers$insurance_premiums),c(1,7)]
+head(tabular_final,5)
+```
+
 
 8. Reshape the dataset gathering together perc_speeding, perc_alcohol, perc_not_distracted in one variable, paired with their pecentages. Name this variable "ViolationType" and the variable for the value pairs "perc".
 ```{r}
 library(tidyr)
-unite(bad_drivers, violationType, c(perc_speeding, perc_alcohol, perc_not_distracted), remove=FALSE)
+gather(bad_drivers, key = 'violationType', value = 'perc', perc_speeding, perc_alcohol, perc_not_distracted)
 ```
 
 9. Use facetting (DO NOT use 3 distinct calls to `ggplot()`) to plot 3 dot plots for the correlation between:
@@ -74,12 +79,11 @@ unite(bad_drivers, violationType, c(perc_speeding, perc_alcohol, perc_not_distra
    - insurance_premiums and perc_speeding
    - insurance_premiums and perc_not_distracted
 ```{r}
-
-dot_chart3<-ggplot(data=bad_drivers, aes(x=insurance_premiums, y=losses)) + 
-  geom_point(aes(size=num_drivers)) +
-   facet_grid(insurance_premiums ~ perc_alcohol) +  facet_grid(insurance_premiums ~ perc_speending)+
-   facet_grid(insurance_premiums ~ perc_not_distracted)
-dot_chart3
+?Facet
+dot_chart3<-ggplot(bad_drivers, aes(x=insurance_premiums, y=perc)) + 
+  geom_point(aes(size=num_drivers))
+dot_chart4 <- dot_chart3 + facet_grid(.~ violationType)
+dot_chart4
 ```
 
    
